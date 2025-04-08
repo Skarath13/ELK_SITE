@@ -1,17 +1,19 @@
 <!-- FAQ Modal -->
-<div id="faq-modal" class="modal fixed inset-0 z-[60] flex items-start justify-center p-4 hidden overflow-y-auto">
-    <div class="modal-overlay fixed inset-0 bg-black bg-opacity-70 cursor-pointer backdrop-blur-sm"></div>
-    <div class="modal-content relative bg-white w-full max-w-4xl p-8 md:p-10 rounded-2xl shadow-xl mx-auto z-10 my-8">
-        <button class="modal-close absolute top-3 right-4 text-gray-400 hover:text-darktext text-4xl leading-none font-light transition duration-200">&times;</button>
-        
-        <div class="text-center mb-8">
-            <h3 class="text-3xl font-playfair font-semibold text-primary mb-2">Frequently Asked Questions</h3>
-            <p class="text-mediumtext">Everything you need to know about our lash extensions</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-h-[70vh] overflow-y-auto pr-4 fancy-scrollbar">
-            <!-- Basic Questions -->
+<div id="faq-modal" class="modal fixed inset-0 z-[60] hidden">
+    <div class="modal-overlay absolute inset-0 bg-black/50"></div>
+    <div class="modal-container bg-white w-11/12 md:max-w-3xl mx-auto rounded-xl shadow-lg z-50 overflow-y-auto fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[90vh]">
+        <div class="modal-content p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-3xl font-playfair font-semibold text-darktext">Frequently Asked Questions</h3>
+                <button class="modal-close">
+                    <svg class="w-6 h-6 text-darktext" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <!-- FAQ Content -->
             <div class="space-y-4">
+                <!-- Basic Questions -->
                 <div class="faq-card">
                     <button class="faq-question w-full text-left" aria-expanded="false">
                         <div class="faq-icon">✨</div>
@@ -128,10 +130,8 @@
                         <p>Yes, but with a magical twist! Avoid oil-based products and waterproof mascara. Regular mascara isn't needed, but if you want to use eye makeup, gentle, water-based products are fine. Just be extra gentle when removing it!</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Advanced Questions -->
-            <div class="space-y-4">
+                <!-- Advanced Questions -->
                 <div class="faq-card">
                     <button class="faq-question w-full text-left" aria-expanded="false">
                         <div class="faq-icon">💧</div>

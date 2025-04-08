@@ -1,50 +1,47 @@
 <!-- Policy Modal -->
-<div id="policy-modal" class="modal fixed inset-0 z-[60] flex items-center justify-center p-4 hidden">
-    <div class="modal-overlay fixed inset-0 bg-black bg-opacity-70 cursor-pointer backdrop-blur-sm"></div>
-    <div class="modal-content relative bg-white w-full max-w-2xl p-8 md:p-10 rounded-lg shadow-xl mx-auto z-10 max-h-[90vh] overflow-y-auto">
-        <button class="modal-close absolute top-3 right-4 text-gray-400 hover:text-darktext text-4xl leading-none font-light transition duration-200">&times;</button>
-        
-        <h3 class="text-3xl font-playfair font-semibold text-center text-darktext mb-8">✨ Salon Policies & Important Info ✨</h3>
-        
-        <div class="space-y-6 text-mediumtext">
-            <!-- 3-Day Fix Policy -->
-            <div>
-                <h4 class="text-xl font-semibold text-darktext mb-3">3-Day Fix Policy</h4>
-                <p class="mb-2">We offer a complimentary lash fix within <strong>3 days</strong> of your original appointment. To qualify, text us immediately at <strong>657-334-9919</strong> with a brief explanation of the issue. <strong>Only one free fix per paid appointment.</strong> After 3 days, adjustments will incur a charge. No exceptions. All corrections <strong>must</strong> be done by your original technician at the same location (it's their personal guarantee💕).</p>
-                <p class="text-sm italic">Note: Changes in lash style, length, or volume are not eligible for free fixes. All services and sales are final (no refunds).</p>
+<div id="policy-modal" class="modal fixed inset-0 z-[60] hidden">
+    <div class="modal-overlay absolute inset-0 bg-black/50"></div>
+    <div class="modal-container bg-white w-11/12 md:max-w-3xl mx-auto rounded-xl shadow-lg z-50 overflow-y-auto fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[90vh]">
+        <div class="modal-content p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-3xl font-playfair font-semibold text-darktext">Policies & Guidelines</h3>
+                <button class="modal-close">
+                    <svg class="w-6 h-6 text-darktext" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
+            <div class="space-y-6">
+                <!-- Cancellation Policy -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-3">Cancellation Policy</h4>
+                    <p class="text-mediumtext">We require a minimum of 24 hours notice for all cancellations. Late cancellations or no-shows will result in a charge of 50% of the service price.</p>
+                </div>
 
-            <!-- Allergic Reactions -->
-            <div>
-                <h4 class="text-xl font-semibold text-darktext mb-3">Allergic Reactions</h4>
-                <p>If you experience clear signs of puffiness or discomfort from an allergic reaction, please contact us immediately. We'll gladly remove your lashes free of charge. However, allergic reactions do not qualify for refunds.</p>
+                <!-- Arrival Time -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-3">Arrival Time</h4>
+                    <p class="text-mediumtext">Please arrive 5-10 minutes before your appointment. Late arrivals may result in reduced service time while being charged for the full service price.</p>
+                </div>
+
+                <!-- Health & Safety -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-3">Health & Safety</h4>
+                    <p class="text-mediumtext">Please reschedule if you have any eye infections, recent eye surgery, or active allergies. Your safety is our top priority.</p>
+                </div>
+
+                <!-- Payment -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-3">Payment</h4>
+                    <p class="text-mediumtext">We accept all major credit cards, cash, and digital payments. Full payment is required at the time of service.</p>
+                </div>
+
+                <!-- Refunds -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-3">Refund Policy</h4>
+                    <p class="text-mediumtext">Due to the personalized nature of our services, we do not offer refunds. However, we're happy to address any concerns about your service.</p>
+                </div>
             </div>
-
-            <!-- Before Your Appointment -->
-            <div>
-                <h4 class="text-xl font-semibold text-darktext mb-3">Before Your Appointment:</h4>
-                <ul class="list-none space-y-2">
-                    <li>✨ Service typically lasts 1-2 hours. Please plan accordingly.</li>
-                    <li>✨ No mascara, and please cleanse eyes beforehand. (Make-up remover available at front desk!)</li>
-                    <li>✨ Keep lashes dry for 24 hours after your session.</li>
-                    <li>✨ Bring headphones & get comfy—nap time encouraged!</li>
-                    <li>✨ Bring your own blanket if desired</li>
-                </ul>
-            </div>
-
-            <!-- Salon Rules & Etiquette -->
-            <div>
-                <h4 class="text-xl font-semibold text-darktext mb-3">Salon Rules & Etiquette:</h4>
-                <ul class="list-none space-y-2">
-                    <li>✨ Silence phones during your appointment.</li>
-                    <li>✨ Arriving late? Please notify us ASAP via call or text to avoid a $25 cancellation or late fee. (Late arrivals may be refused service)</li>
-                    <li>✨ Appointment confirmation is required via our automated system <strong>one hour prior</strong>. Unconfirmed appointments may not be honored.</li>
-                    <li>✨ Your technician takes time and care. Expect possible wait times up to 15 minutes.</li>
-                    <li>✨ Clearly agree on style, length, and price with your technician <strong>before</strong> the service begins. Please understand that exact matches to pictures aren't guaranteed.</li>
-                </ul>
-            </div>
-
-            <p class="text-center text-primary font-medium mt-8">Thank you for understanding—we value you as our client and appreciate your cooperation! 💕✨</p>
         </div>
     </div>
 </div> 

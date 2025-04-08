@@ -98,30 +98,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function initializeBookingModal() {
-        const bookingModal = document.getElementById('booking-modal'); // Modal is in its own component now
+        const bookingModalPlaceholder = document.getElementById('booking-modal-placeholder');
+        if (!bookingModalPlaceholder) {
+            console.warn("Booking modal placeholder not found.");
+            return;
+        }
+
+        const bookingModal = bookingModalPlaceholder.querySelector('#booking-modal');
         if (!bookingModal) {
-            console.warn("Booking modal element not found.");
+            console.warn("Booking modal element not found within placeholder.");
             return;
         }
 
         const modalOverlay = bookingModal.querySelector('.modal-overlay');
         const modalCloseButton = bookingModal.querySelector('.modal-close');
-        const openModalButtons = document.querySelectorAll('.open-modal-button'); // Query globally as they exist in multiple components
+        
+        // Query for open buttons after all components are loaded
+        const openModalButtons = document.querySelectorAll('.open-modal-button, .main-book-now-btn');
         const locationSelectButtonsModal = bookingModal.querySelectorAll('.location-select-button');
-        // Buttons on location page - query after components loaded
         const locationSelectButtonsPage = document.querySelectorAll('#locations-placeholder .location-select-button');
 
         const openModal = () => {
             bookingModal.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                bookingModal.classList.add('active');
+            });
             document.body.style.overflow = 'hidden';
         }
+        
         const closeModal = () => {
-            bookingModal.classList.add('hidden');
+            bookingModal.classList.remove('active');
+            bookingModal.addEventListener('transitionend', () => {
+                bookingModal.classList.add('hidden');
+                // Reset scroll position when modal is closed
+                const modalContainer = bookingModal.querySelector('.modal-container');
+                if (modalContainer) {
+                    modalContainer.scrollTop = 0;
+                }
+            }, { once: true });
             document.body.style.overflow = '';
         }
 
         // Attach listeners to ALL buttons that should open the modal
-        openModalButtons.forEach(button => button.addEventListener('click', openModal));
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        });
 
         if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
         if (modalCloseButton) modalCloseButton.addEventListener('click', closeModal);
@@ -132,98 +156,145 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.addEventListener('click', () => {
                     const location = button.getAttribute('data-location');
                     const url = bookingLinks[location];
-                    // Basic check if URL is a placeholder
                     if (url && !url.toUpperCase().includes('YOUR_')) {
                         console.log(`Redirecting to ${location} booking: ${url}`);
-                        window.open(url, '_blank'); // Open in new tab
+                        window.open(url, '_blank');
                         closeModal();
                     } else {
                         console.warn(`Booking link for ${location} is not set up or is a placeholder.`);
                         alert(`Online booking for ${location} is coming soon! Please call or text 657-334-9919 to book.`);
-                        // closeModal(); // Optionally close modal even if link is not ready
                     }
                 });
             });
         }
 
-        // Handle location selection from Location Section buttons (just open modal)
+        // Handle location selection from Location Section buttons
         if (locationSelectButtonsPage) {
             locationSelectButtonsPage.forEach(button => {
-                button.addEventListener('click', (event) => {
-                    event.preventDefault(); // Prevent default if it's an anchor etc.
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
                     openModal();
                 });
             });
         }
-         console.log("Booking modal initialized.");
+
+        // Add escape key listener
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !bookingModal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        console.log("Booking modal initialized.");
     }
 
     function initializePolicyModal() {
-        const policyModal = document.getElementById('policy-modal');
+        const policyModalPlaceholder = document.getElementById('policy-modal-placeholder');
+        if (!policyModalPlaceholder) {
+            console.warn("Policy modal placeholder not found.");
+            return;
+        }
+
+        const policyModal = policyModalPlaceholder.querySelector('#policy-modal');
         if (!policyModal) {
-            console.warn("Policy modal element not found.");
+            console.warn("Policy modal element not found within placeholder.");
             return;
         }
 
         const modalOverlay = policyModal.querySelector('.modal-overlay');
         const modalCloseButton = policyModal.querySelector('.modal-close');
-        const openPolicyButtons = document.querySelectorAll('.open-policy-modal');
+        const openModalButtons = document.querySelectorAll('.open-policy-modal');
 
         const openModal = () => {
             policyModal.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                policyModal.classList.add('active');
+            });
             document.body.style.overflow = 'hidden';
         }
+        
         const closeModal = () => {
-            policyModal.classList.add('hidden');
+            policyModal.classList.remove('active');
+            policyModal.addEventListener('transitionend', () => {
+                policyModal.classList.add('hidden');
+                // Reset scroll position when modal is closed
+                const modalContainer = policyModal.querySelector('.modal-container');
+                if (modalContainer) {
+                    modalContainer.scrollTop = 0;
+                }
+            }, { once: true });
             document.body.style.overflow = '';
         }
 
-        // Attach listeners to all buttons that should open the modal
-        openPolicyButtons.forEach(button => button.addEventListener('click', (e) => {
-            e.preventDefault();
-            openModal();
-        }));
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        });
 
         if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
         if (modalCloseButton) modalCloseButton.addEventListener('click', closeModal);
+
+        // Add escape key listener
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !policyModal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
 
         console.log("Policy modal initialized.");
     }
 
     function initializeShopModal() {
-        const shopModal = document.getElementById('shop-modal');
-        if (!shopModal) {
-            console.warn("Shop modal not found");
+        const shopModalPlaceholder = document.getElementById('shop-modal-placeholder');
+        if (!shopModalPlaceholder) {
+            console.warn("Shop modal placeholder not found.");
             return;
         }
 
-        const openButtons = document.querySelectorAll('.open-shop-modal');
-        const closeButton = shopModal.querySelector('.modal-close');
-        const overlay = shopModal.querySelector('.modal-overlay');
-
-        function openModal() {
-            shopModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
+        const shopModal = shopModalPlaceholder.querySelector('#shop-modal');
+        if (!shopModal) {
+            console.warn("Shop modal element not found within placeholder.");
+            return;
         }
 
-        function closeModal() {
-            shopModal.classList.add('hidden');
+        const modalOverlay = shopModal.querySelector('.modal-overlay');
+        const modalCloseButton = shopModal.querySelector('.modal-close');
+        const openModalButtons = document.querySelectorAll('.open-shop-modal');
+
+        const openModal = () => {
+            shopModal.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                shopModal.classList.add('active');
+            });
+            document.body.style.overflow = 'hidden';
+        }
+        
+        const closeModal = () => {
+            shopModal.classList.remove('active');
+            shopModal.addEventListener('transitionend', () => {
+                shopModal.classList.add('hidden');
+                // Reset scroll position when modal is closed
+                const modalContainer = shopModal.querySelector('.modal-container');
+                if (modalContainer) {
+                    modalContainer.scrollTop = 0;
+                }
+            }, { once: true });
             document.body.style.overflow = '';
         }
 
-        openButtons.forEach(button => {
-            button.addEventListener('click', openModal);
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
         });
 
-        if (closeButton) {
-            closeButton.addEventListener('click', closeModal);
-        }
+        if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
+        if (modalCloseButton) modalCloseButton.addEventListener('click', closeModal);
 
-        if (overlay) {
-            overlay.addEventListener('click', closeModal);
-        }
-
-        // Close on escape key
+        // Add escape key listener
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !shopModal.classList.contains('hidden')) {
                 closeModal();
@@ -234,57 +305,89 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function initializeFAQModal() {
-        const modal = document.getElementById('faq-modal');
-        const openButtons = document.querySelectorAll('.open-faq-modal');
-        const closeButton = modal?.querySelector('.modal-close');
-        const overlay = modal?.querySelector('.modal-overlay');
-        const faqQuestions = modal?.querySelectorAll('.faq-question');
+        const faqModalPlaceholder = document.getElementById('faq-modal-placeholder');
+        if (!faqModalPlaceholder) {
+            console.warn("FAQ modal placeholder not found.");
+            return;
+        }
 
-        const openModal = () => {
-            modal?.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        };
+        const faqModal = faqModalPlaceholder.querySelector('#faq-modal');
+        if (!faqModal) {
+            console.warn("FAQ modal element not found within placeholder.");
+            return;
+        }
 
-        const closeModal = () => {
-            modal?.classList.add('hidden');
-            document.body.style.overflow = '';
-        };
+        const modalOverlay = faqModal.querySelector('.modal-overlay');
+        const modalCloseButton = faqModal.querySelector('.modal-close');
+        const openModalButtons = document.querySelectorAll('.open-faq-modal');
 
-        // Handle FAQ question clicks
-        faqQuestions?.forEach(question => {
+        // Initialize FAQ dropdowns
+        const faqQuestions = faqModal.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
             question.addEventListener('click', () => {
                 const answer = question.nextElementSibling;
                 const isExpanded = question.getAttribute('aria-expanded') === 'true';
                 
-                // Close all other answers
-                faqQuestions.forEach(q => {
-                    if (q !== question) {
-                        q.setAttribute('aria-expanded', 'false');
-                        q.nextElementSibling.classList.remove('show');
-                    }
-                });
-
-                // Toggle current answer
+                // Toggle current question
                 question.setAttribute('aria-expanded', !isExpanded);
                 answer.classList.toggle('show');
+                
+                // Optional: Close other open questions
+                if (!isExpanded) {
+                    faqQuestions.forEach(otherQuestion => {
+                        if (otherQuestion !== question && otherQuestion.getAttribute('aria-expanded') === 'true') {
+                            otherQuestion.setAttribute('aria-expanded', 'false');
+                            otherQuestion.nextElementSibling.classList.remove('show');
+                        }
+                    });
+                }
             });
         });
 
-        openButtons.forEach(button => {
-            button.addEventListener('click', openModal);
+        const openModal = () => {
+            faqModal.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                faqModal.classList.add('active');
+            });
+            document.body.style.overflow = 'hidden';
+        }
+        
+        const closeModal = () => {
+            faqModal.classList.remove('active');
+            faqModal.addEventListener('transitionend', () => {
+                faqModal.classList.add('hidden');
+                // Reset scroll position when modal is closed
+                const modalContainer = faqModal.querySelector('.modal-container');
+                if (modalContainer) {
+                    modalContainer.scrollTop = 0;
+                }
+                // Reset all FAQ questions to closed state
+                faqQuestions.forEach(question => {
+                    question.setAttribute('aria-expanded', 'false');
+                    question.nextElementSibling.classList.remove('show');
+                });
+            }, { once: true });
+            document.body.style.overflow = '';
+        }
+
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
         });
 
-        if (closeButton) closeButton.addEventListener('click', closeModal);
-        if (overlay) overlay.addEventListener('click', closeModal);
+        if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
+        if (modalCloseButton) modalCloseButton.addEventListener('click', closeModal);
 
-        // Close on escape key
+        // Add escape key listener
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+            if (e.key === 'Escape' && !faqModal.classList.contains('hidden')) {
                 closeModal();
             }
         });
 
-        console.log('FAQ Modal initialized');
+        console.log("FAQ modal initialized.");
     }
 
     function updateYelpLinks() {
