@@ -1,0 +1,23 @@
+<!-- Booking Modal -->
+<div id="booking-modal" class="modal fixed inset-0 z-[60] flex items-center justify-center p-4 hidden">
+    <div class="modal-overlay fixed inset-0 bg-black bg-opacity-70 cursor-pointer backdrop-blur-sm"></div>
+    <div class="modal-content relative bg-white w-full max-w-md p-8 md:p-10 rounded-lg shadow-xl mx-auto z-10">
+        <button class="modal-close absolute top-3 right-4 text-gray-400 hover:text-darktext text-4xl leading-none font-light transition duration-200">&times;</button>
+        <h3 class="text-3xl font-playfair font-semibold text-center text-darktext mb-8">Select Booking Location</h3>
+        <div class="space-y-4">
+             <button type="button" data-location="Irvine" class="location-select-button block w-full text-center btn-ghibli hover:shadow-xl py-4 px-5 text-lg">
+                Book Irvine
+             </button>
+             <button type="button" data-location="Tustin" class="location-select-button block w-full text-center btn-ghibli hover:shadow-xl py-4 px-5 text-lg">
+                Book Tustin
+             </button>
+             <button type="button" data-location="Santa Ana" class="location-select-button block w-full text-center btn-ghibli hover:shadow-xl py-4 px-5 text-lg">
+                Book Santa Ana
+             </button>
+             <button type="button" data-location="Costa Mesa" class="location-select-button block w-full text-center btn-ghibli hover:shadow-xl py-4 px-5 text-lg">
+                Book Costa Mesa
+             </button>
+        </div>
+        <p class="text-center text-xs text-mediumtext mt-6">You will be redirected to our secure online booking platform.</p>
+    </div>
+</div>

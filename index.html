@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Orange County's Premier Lash Extension Studios since 2016. Luxury eyelash extensions in Irvine, Tustin, Santa Ana, and Costa Mesa. Specializing in classic, hybrid, and volume lashes with expert application and care.">
+    <meta name="keywords" content="lash extensions Orange County, eyelash extensions Irvine, lash studio Tustin, volume lashes Santa Ana, classic lashes Costa Mesa, hybrid lashes OC, Katie lash artist, luxury lash extensions, professional lash services, best lash extensions Orange County, premium lash studio, Korean lash extensions, Japanese lash extensions, natural lash extensions, dramatic lash extensions, lash lift Orange County, lash tint OC, bridal lashes, prom lashes, lash extension maintenance, lash aftercare">
+    <meta name="author" content="Elegant Lashes by Katie">
+    <meta property="og:title" content="Elegant Lashes by Katie | Premium Lash Extensions in Orange County">
+    <meta property="og:description" content="Transform your look with Orange County's premier lash extension services. Four convenient locations in Irvine, Tustin, Santa Ana, and Costa Mesa. Book your appointment today!">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/logo.png">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="US-CA">
+    <meta name="geo.placename" content="Orange County">
+    <link rel="canonical" href="https://elegantlashesbykatie.com">
+    <title>Elegant Lashes by Katie | Premium Lash Extensions in Orange County</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+
+    <!-- Tailwind Configuration (Inline for CDN usage) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Ghibli-inspired warm summer pastel palette with dominant pink tones
+                        primary: '#E57F9F',     // Soft Rose Pink (main primary)
+                        secondary: '#F4ADB8',   // Light Pink
+                        accent: '#FFF0F5',      // Lavender Blush
+                        peach: '#FFCBB6',       // Soft Peach
+                        sage: '#BFDAC0',        // Sage Green
+                        skyblue: '#B6DCEE',     // Sky Blue
+                        cream: '#FFF8E7',       // Cream
+                        lilac: '#E0D7EE',       // Soft Lilac
+                        darktext: '#5D4A54',    // Soft Plum for text
+                        mediumtext: '#8A7584',  // Medium Plum/Grey
+                        lightbg: '#FFFCFD',     // Very subtle pink/white Background
+                        white: '#FFFFFF',
+                        gray: { 50: '#F9FAFB', 100: '#F3F4F6', 200: '#E5E7EB', 300: '#D1D5DB', 400: '#9CA3AF', 500: '#6B7280', 600: '#4B5563', 700: '#374151', 800: '#1F2937', 900: '#111827' },
+                        yelpRed: '#d32323',
+                    },
+                    fontFamily: {
+                        'playfair': ['"Playfair Display"', 'serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'ghibli': '0 6px 20px rgba(229, 127, 159, 0.15)',
+                        'ghibli-lg': '0 10px 25px rgba(229, 127, 159, 0.2)',
+                    },
+                    backgroundImage: {
+                        'gradient-ghibli': 'linear-gradient(to right, #FFF0F5, #FFF8E7, #FFF0F5)',
+                        'gradient-sunset': 'linear-gradient(to right bottom, #E57F9F, #FFCBB6, #FFF8E7)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Link Custom CSS (Contains styles not handled by Tailwind or requiring theme() replacements) -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        /* Simple loading indicator styles */
+        /* Applied to placeholders before content is fetched */
+        .placeholder-loading {
+            min-height: 100px; /* Give some space while loading */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #e0d7ee; /* Optional: visual cue for dev */
+            margin: 1rem 0; /* Optional: spacing */
+            background-color: #fff0f51a; /* Optional: slight bg */
+            border-radius: 8px; /* Optional: rounded corners */
+        }
+        .placeholder-loading::before {
+            content: '✨ Loading... ✨'; /* More thematic loading text */
+            display: block;
+            text-align: center;
+            padding: 2rem;
+            color: #8A7584; /* mediumtext */
+            font-style: italic;
+            font-family: 'Montserrat', sans-serif;
+            opacity: 0.7;
+        }
+        /* Hide placeholders visual styles once content is loaded */
+        .placeholder-loaded {
+             min-height: 0;
+             border: none;
+             margin: 0;
+             background-color: transparent;
+             border-radius: 0;
+        }
+        .placeholder-loaded::before {
+             display: none;
+        }
+    </style>
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "Elegant Lashes by Katie",
+      "image": "images/logo.png",
+      "description": "Orange County's Premier Lash Extension Studios. Luxury & Expertise in Lash Extensions across Orange County, CA since 2016.",
+      "@id": "https://elegantlashesbykatie.com",
+      "url": "https://elegantlashesbykatie.com",
+      "telephone": "657-334-9919",
+      "email": "elegantlashesbykatie@gmail.com",
+      "sameAs": [
+        "https://instagram.com/elegantlashesbykatie"
+      ],
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "15333 Culver Dr #220",
+          "addressLocality": "Irvine",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "13112 Newport Ave #K",
+          "addressLocality": "Tustin",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "3740 S Bristol St",
+          "addressLocality": "Santa Ana",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "435 E 17th St #3",
+          "addressLocality": "Costa Mesa",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        }
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "19:00"
+      },
+      "priceRange": "$$"
+    }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!--
+      Component Placeholders:
+      These empty divs will be populated with content fetched from
+      the corresponding HTML files in the /components/ directory by js/main.js
+    -->
+
+    <!-- Layout Components -->
+    <header id="navigation-placeholder" class="placeholder-loading" aria-live="polite"></header>
+
+    <!-- Section Components -->
+    <main class="pt-20">
+        <div id="home-placeholder" class="placeholder-loading" aria-live="polite"></div>
+        <div id="locations-placeholder" class="placeholder-loading" aria-live="polite"></div>
+        <div id="about-placeholder" class="placeholder-loading" aria-live="polite"></div>
+        <div id="reviews-placeholder" class="placeholder-loading" aria-live="polite"></div>
+        <div id="menu-placeholder" class="placeholder-loading" aria-live="polite"></div>
+        <div id="technicians-placeholder" class="placeholder-loading" aria-live="polite"></div>
+        <div id="instagram-placeholder" class="placeholder-loading" aria-live="polite"></div>
+        <div id="aftercare-placeholder" class="placeholder-loading" aria-live="polite"></div>
+        <div id="contact-placeholder" class="placeholder-loading" aria-live="polite"></div>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder" class="placeholder-loading" aria-live="polite"></div>
+
+    <!-- Modal Component (usually placed near end of body for stacking context) -->
+    <div id="booking-modal-placeholder"></div> <!-- Loading indicator might not be needed visually -->
+
+    <!-- Modals -->
+    <div id="policy-modal-placeholder"></div>
+    <div id="shop-modal-placeholder"></div>
+    <div id="faq-modal-placeholder"></div>
+
+    <!-- Main JavaScript - Loads components and initializes functionality -->
+    <!-- Placed at the end of body to ensure placeholder divs exist -->
+    <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

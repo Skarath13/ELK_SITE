@@ -1,0 +1,1238 @@
+/* css/styles.css */
+
+/* Base Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* color: theme('colors.darktext'); */
+    color: #5D4A54; /* Replaced theme() */
+    /* background-color: theme('colors.lightbg'); */
+    background-color: #FFFCFD; /* Replaced theme() */
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Subtle background pattern */
+    /* background-image: radial-gradient(theme('colors.peach') 0.5px, transparent 0.5px),
+                      radial-gradient(theme('colors.peach') 0.5px, theme('colors.lightbg') 0.5px); */
+    background-image: radial-gradient(#FFCBB6 0.5px, transparent 0.5px),
+                      radial-gradient(#FFCBB6 0.5px, #FFFCFD 0.5px); /* Replaced theme() */
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    background-attachment: fixed;
+    scroll-padding-top: 64px; /* Reduced from 80px */
+}
+.text-center p { margin-left: auto; margin-right: auto; }
+p {
+    /* color: theme('colors.darktext'); */
+    color: #5D4A54; /* Replaced theme() */
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+    max-width: 70ch;
+}
+/* .text-secondary-info { color: theme('colors.mediumtext'); } */
+.text-secondary-info { color: #8A7584; } /* Replaced theme() */
+.text-base-sm { font-size: 0.95rem; line-height: 1.6; }
+.text-sm-xs { font-size: 0.85rem; line-height: 1.5; }
+h1, h2, h3, h4 {
+    /* color: theme('colors.darktext'); */
+    color: #5D4A54; /* Replaced theme() */
+}
+h2 { margin-bottom: 2rem; }
+h3 { margin-bottom: 1rem; }
+.font-playfair { font-family: 'Playfair Display', serif; }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 64px; /* Reduced from 80px */
+}
+
+section[id] {
+    scroll-margin-top: 64px; /* Reduced from 80px */
+}
+
+/* Navigation */
+.nav-active {
+    color: #FFFFFF !important;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -1px;
+    left: 0;
+    background: linear-gradient(to right, #FFFFFF, #E6C7FF);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #FFFFFF !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -1px;
+    left: 0;
+    background: linear-gradient(to right, #FFFFFF, #E6C7FF);
+}
+
+/* Mobile Menu Styles */
+#mobile-menu {
+    background: rgba(45, 31, 60, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(155, 111, 182, 0.2);
+}
+
+/* Ghibli-inspired pastel highlights (Can be used for small accents if needed) */
+/* .highlight-peach { background-color: theme('colors.peach'); } */
+.highlight-peach { background-color: #FFCBB6; } /* Replaced theme() */
+/* .highlight-sage { background-color: theme('colors.sage'); } */
+.highlight-sage { background-color: #BFDAC0; } /* Replaced theme() */
+/* .highlight-skyblue { background-color: theme('colors.skyblue'); } */
+.highlight-skyblue { background-color: #B6DCEE; } /* Replaced theme() */
+/* .highlight-lilac { background-color: theme('colors.lilac'); } */
+.highlight-lilac { background-color: #E0D7EE; } /* Replaced theme() */
+
+/* Cards & Effects */
+.card-shadow { box-shadow: 0 6px 18px rgba(93, 74, 84, 0.08); }
+
+/* Ghibli-inspired card styling */
+.ghibli-card {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(244, 173, 184, 0.3);
+    box-shadow: 0 6px 20px rgba(229, 127, 159, 0.15);
+    transition: all 0.3s ease;
+}
+
+.ghibli-card:hover {
+    box-shadow: 0 10px 25px rgba(229, 127, 159, 0.2);
+    border-color: rgba(244, 173, 184, 0.5);
+    transform: translateY(-4px);
+}
+
+/* Modal */
+.modal { transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; }
+.modal.hidden { opacity: 0; visibility: hidden; }
+.modal-content {
+    transform: translateY(-20px);
+    transition: transform 0.3s ease-out;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(244, 173, 184, 0.4);
+    box-shadow: 0 15px 40px rgba(229, 127, 159, 0.2);
+}
+.modal:not(.hidden) .modal-content { transform: translateY(0); }
+
+/* Icons */
+svg { vertical-align: middle; }
+/* .icon-primary { color: theme('colors.primary'); } */
+.icon-primary { color: #E57F9F; } /* Replaced theme() */
+/* .icon-secondary { color: theme('colors.secondary'); } */
+.icon-secondary { color: #F4ADB8; } /* Replaced theme() */
+/* .icon-dark { color: theme('colors.darktext'); } */
+.icon-dark { color: #5D4A54; } /* Replaced theme() */
+/* .icon-medium { color: theme('colors.mediumtext'); } */
+.icon-medium { color: #8A7584; } /* Replaced theme() */
+.icon-red { color: #EF4444; } /* Standard red for negative actions/warnings */
+.icon-yellow { color: #F59E0B; } /* Standard yellow for ratings */
+/* .icon-yelp { color: theme('colors.yelpRed'); } */
+.icon-yelp { color: #d32323; } /* Replaced theme() */
+/* .icon-peach { color: theme('colors.peach'); } */
+.icon-peach { color: #FFCBB6; } /* Replaced theme() */
+/* .icon-sage { color: theme('colors.sage'); } */
+.icon-sage { color: #BFDAC0; } /* Replaced theme() */
+/* .icon-skyblue { color: theme('colors.skyblue'); } */
+.icon-skyblue { color: #B6DCEE; } /* Replaced theme() */
+
+/* Main "Book Now" Button Style */
+.main-book-now-btn {
+    background: linear-gradient(135deg, #E57F9F, #9B6FB6);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(155, 111, 182, 0.2), 0 2px 4px -1px rgba(229, 127, 159, 0.1);
+    text-align: center;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+}
+
+.main-book-now-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #9B6FB6, #E57F9F);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.main-book-now-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px -1px rgba(155, 111, 182, 0.3), 0 4px 6px -1px rgba(229, 127, 159, 0.2);
+}
+
+.main-book-now-btn:hover::before {
+    opacity: 1;
+}
+
+.main-book-now-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Mobile menu specific Book Now button adjustments */
+#mobile-menu .main-book-now-btn {
+    width: calc(100% - 2rem);
+    margin: 0.75rem 1rem;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+/* Standard Ghibli Button (Lighter Gradient) */
+.btn-ghibli {
+    /* background: linear-gradient(to right, theme('colors.primary'), theme('colors.secondary')); */
+    background: linear-gradient(to right, #E57F9F, #F4ADB8); /* Replaced theme() */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(229, 127, 159, 0.3);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-ghibli:hover {
+    box-shadow: 0 6px 20px rgba(229, 127, 159, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Outline Button Style (Improved Contrast) */
+.btn-ghibli-outline {
+    background: transparent;
+    color: #D9538A; /* Darker pink */
+    border: 2px solid #D9538A; /* Darker pink */
+    padding: 0.65rem 1.4rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-ghibli-outline:hover {
+    background-color: rgba(217, 83, 138, 0.1); /* Subtle background on hover */
+}
+
+
+/* Instagram Grid Placeholder */
+.instagram-grid div {
+    background-color: #E5E7EB;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.instagram-grid div:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(229, 127, 159, 0.2);
+}
+
+.instagram-grid .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.instagram-grid div:hover .overlay {
+    opacity: 1;
+}
+
+.instagram-grid .lash-style-title {
+    color: #1F2937;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.instagram-grid .stats {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.instagram-grid .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.instagram-grid .heart-icon {
+    color: #EF4444;
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+.instagram-grid .comment-icon {
+    color: #4B5563;
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+.instagram-grid .stat-number {
+    color: #1F2937;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Consistent bottom button alignment in cards */
+.card-with-button { display: flex; flex-direction: column; height: 100%; }
+.card-content { flex-grow: 1; }
+.card-button-wrapper { margin-top: auto; padding-top: 0.75rem; }
+
+/* Section Backgrounds */
+/* Gradients need replacement too */
+.bg-ghibli-gradient {
+    /* background: theme('backgroundImage.gradient-ghibli'); */
+    background: linear-gradient(to right, #FFF0F5, #FFF8E7, #FFF0F5); /* Replaced theme() */
+}
+
+.bg-sunset-gradient {
+    /* background: theme('backgroundImage.gradient-sunset'); */
+    background: linear-gradient(to right bottom, #E57F9F, #FFCBB6, #FFF8E7); /* Replaced theme() */
+}
+
+/* Section Spacing */
+section { padding-top: 2rem; padding-bottom: 2rem; position: relative; overflow: hidden; }
+@media (min-width: 768px) {
+    section { padding-top: 3rem; padding-bottom: 3rem; }
+}
+@media (min-width: 1024px) {
+    section { padding-top: 4rem; padding-bottom: 4rem; }
+}
+
+#home { padding-top: 3rem; padding-bottom: 3rem; }
+@media (min-width: 768px) {
+    #home { padding-top: 4rem; padding-bottom: 4rem; }
+}
+
+/* Default Section Subheading Style - Replaced @apply */
+.section-subheading {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    color: #E57F9F;
+    margin-bottom: 1.5rem; /* Reduced from 2.5rem */
+    padding-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+    border-bottom: 2px solid #E57F9F;
+}
+
+.section-subheading::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 2px;
+    /* background-color: theme('colors.peach'); */
+    background-color: #FFCBB6; /* Replaced theme() */
+ }
+
+ /* Fancy Subheading Style for Lash Menu Section */
+ .menu-heading {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    color: #5D4A54;
+    margin-bottom: 0.75rem; /* Reduced from 1rem */
+    position: relative;
+    padding-bottom: 0.75rem; /* Reduced from 1rem */
+    display: block;
+    text-shadow: 0 2px 4px rgba(229, 127, 159, 0.15);
+}
+@media (min-width: 768px) { /* md: */
+    .menu-heading {
+        font-size: 3rem; /* text-5xl */
+        line-height: 1;
+    }
+}
+.menu-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Wider gradient line */
+    height: 3px;
+    /* background: linear-gradient(to right, theme('colors.primary'), theme('colors.secondary'), theme('colors.peach')); */
+    background: linear-gradient(to right, #E57F9F, #F4ADB8, #FFCBB6); /* Replaced theme() */
+    border-radius: 2px;
+}
+/* Styling for the description text under menu heading */
+.menu-description {
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #8A7584;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem; /* Reduced from 3rem */
+    max-width: 72rem;
+    @media (min-width: 1024px) {
+        max-width: 48rem;
+    }
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Subheadings within the Menu */
+.menu-subheading {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    color: #E57F9F;
+    margin-bottom: 0.5rem; /* Reduced from 0.75rem */
+}
+
+/* Centering fix for Technician Team Titles */
+#technicians-placeholder #technicians h3 {
+    text-align: center;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 600;
+    color: #E57F9F;
+    margin-bottom: 1.5rem; /* Reduced from 2rem */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding-bottom: 0.5rem; /* Reduced from 0.75rem */
+    max-width: max-content;
+    border-bottom: 2px solid rgba(229, 127, 159, 0.4);
+}
+
+#technicians-placeholder #technicians h3::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Position below the border */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%; /* Make the secondary line wider */
+    height: 2px;
+    /* background-color: theme('colors.secondary'); */
+    background-color: #F4ADB8; /* Replaced theme() */
+}
+
+/* Location Card Placeholder Image (Vertical Layout) - Replaced @apply */
+.location-pic-placeholder {
+    height: 180px; /* Slightly shorter for cuter proportions */
+    width: 100%;
+    border-top-left-radius: 1.5rem; /* Larger radius for softer look */
+    border-top-right-radius: 1.5rem;
+    background-color: #E5E7EB;
+    overflow: hidden;
+    border-bottom: 2px solid rgba(229, 127, 159, 0.15);
+    position: relative;
+}
+
+.location-pic-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #FFCBB6, #E57F9F, #F4ADB8);
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.location-pic-placeholder iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: saturate(0.9); /* Slightly desaturate for softer look */
+}
+
+/* Ghibli Location Card Styling */
+.location-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 1.5rem;
+    border: 2px solid rgba(244, 173, 184, 0.3);
+    box-shadow: 0 8px 20px rgba(229, 127, 159, 0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 300px; /* Fixed width, no growing or shrinking */
+    scroll-snap-align: start;
+    margin: 0.25rem 0; /* Reduced from 0.5rem */
+}
+
+.location-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #FFCBB6, #E57F9F, #F4ADB8, #FFCBB6);
+    border-radius: 1.5rem;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.location-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 12px 24px rgba(229, 127, 159, 0.15);
+    border-color: rgba(244, 173, 184, 0.1);
+}
+
+.location-card:hover::before {
+    opacity: 0.7;
+}
+
+.location-content {
+    padding: 1.25rem; /* Reduced from 1.75rem */
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+
+.location-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #5D4A54;
+    margin-bottom: 0.5rem; /* Reduced from 0.75rem */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.location-address {
+    font-size: 0.95rem;
+    color: #8A7584;
+    margin-bottom: 0.75rem; /* Reduced from 1rem */
+    line-height: 1.5;
+}
+
+.location-phone {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: #8A7584;
+    margin-bottom: 1rem; /* Reduced from 1.25rem */
+}
+
+/* Location Book Button Style - Matching main-book-now-btn */
+.location-book-btn {
+    background: linear-gradient(135deg, #E57F9F, #9B6FB6);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(155, 111, 182, 0.2), 0 2px 4px -1px rgba(229, 127, 159, 0.1);
+    text-align: center;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+}
+
+.location-book-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #9B6FB6, #E57F9F);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.location-book-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px -1px rgba(155, 111, 182, 0.3), 0 4px 6px -1px rgba(229, 127, 159, 0.2);
+}
+
+.location-book-btn:hover::before {
+    opacity: 1;
+}
+
+.location-book-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Location Grid Layout */
+.locations-grid {
+    display: flex;
+    gap: 1.5rem; /* Reduced from 2rem */
+    padding: 0.75rem; /* Reduced from 1rem */
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding: 1rem;
+    scroll-snap-type: x mandatory;
+    /* Hide scrollbar but keep functionality */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.locations-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+@media (min-width: 1280px) {
+    .locations-grid {
+        justify-content: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        overflow-x: visible;
+    }
+}
+
+/* Hero Section Placeholder Image - Replaced @apply */
+.hero-image-placeholder {
+    /* @apply aspect-video bg-gradient-to-br from-secondary to-primary rounded-lg shadow-xl flex items-center justify-center relative overflow-hidden; */
+    aspect-ratio: 4 / 5; /* Changed to match 800x1000 dimensions */
+    /* background-image: linear-gradient(to bottom right, theme('colors.secondary'), theme('colors.primary')); */
+    background-image: linear-gradient(to bottom right, #F4ADB8, #E57F9F); /* Replaced theme() */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); /* shadow-xl */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    max-width: 504px; /* Reduced by 10% from 560px */
+    margin: 0 auto; /* Center the container */
+}
+
+.hero-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 5;
+}
+
+.hero-image-placeholder span {
+    /* @apply text-white opacity-60 text-xl font-medium relative z-10; */
+    /* color: theme('colors.white'); */
+    color: #FFFFFF; /* text-white (Replaced theme) */
+    opacity: 0.6;
+    font-size: 1.25rem; /* text-xl */
+    line-height: 1.75rem;
+    font-weight: 500; /* font-medium */
+    position: relative;
+    z-index: 10;
+}
+
+/* Ghibli-inspired decorative elements */
+.decorative-blob {
+    position: absolute;
+    z-index: 0; /* Behind content */
+    opacity: 0.15; /* Softer opacity */
+    filter: blur(60px); /* More blur */
+    border-radius: 50%;
+    /* background: radial-gradient(circle, theme('colors.primary') 0%, theme('colors.secondary') 70%, transparent 100%); */
+    background: radial-gradient(circle, #E57F9F 0%, #F4ADB8 70%, transparent 100%); /* Replaced theme() */
+    pointer-events: none; /* Prevent interaction */
+}
+
+.decorative-sparkle {
+    position: absolute;
+    width: 6px; /* Slightly larger */
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 12px 2px rgba(255, 255, 255, 0.7);
+    animation: sparkle 3s infinite ease-in-out;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+    50% { opacity: 0.9; transform: scale(1.2) rotate(15deg); }
+}
+
+/* Review Card Styling - Replaced @apply */
+.review-card {
+    /* @apply ghibli-card p-6 flex flex-col h-full; */
+    /* Inherits .ghibli-card styles from above */
+    padding: 1.25rem; /* Reduced from 1.5rem */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.review-header {
+    /* @apply flex items-start mb-4; */
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem; /* Reduced from 1rem */
+}
+.review-avatar {
+    /* @apply flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold; */
+    flex-shrink: 0;
+    width: 2.5rem; /* w-10 */
+    height: 2.5rem; /* h-10 */
+    border-radius: 9999px; /* rounded-full */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* color: theme('colors.white'); */
+    color: #FFFFFF; /* text-white (Replaced theme) */
+    font-weight: 700; /* font-bold */
+}
+.review-stars svg {
+    /* @apply h-4 w-4 text-yellow-500; */
+    height: 1rem; /* h-4 */
+    width: 1rem; /* w-4 */
+    color: #F59E0B; /* text-yellow-500 */
+}
+.review-date {
+    /* @apply ml-auto text-xs text-gray-500 flex-shrink-0 pl-2; */
+    margin-left: auto;
+    font-size: 0.75rem; /* text-xs */
+    line-height: 1rem;
+    /* color: theme('colors.gray.500'); */
+    color: #6B7280; /* text-gray-500 (Replaced theme) */
+    flex-shrink: 0;
+    padding-left: 0.5rem; /* pl-2 */
+}
+.review-body {
+    /* @apply text-sm text-darktext flex-grow; */
+    font-size: 0.875rem; /* text-sm */
+    line-height: 1.25rem;
+    /* color: theme('colors.darktext'); */
+    color: #5D4A54; /* text-darktext (Replaced theme) */
+    flex-grow: 1;
+}
+.review-footer {
+    /* @apply mt-4 pt-3 border-t border-secondary/30 text-xs text-mediumtext; */
+    margin-top: 0.75rem; /* Reduced from 1rem */
+    padding-top: 0.5rem; /* Reduced from 0.75rem */
+    border-top-width: 1px;
+    /* border-color: color-mix(in srgb, theme('colors.secondary') 30%, transparent); */
+    border-color: rgba(244, 173, 184, 0.3); /* border-secondary/30 (Replaced theme mix) */
+    font-size: 0.75rem; /* text-xs */
+    line-height: 1rem;
+    /* color: theme('colors.mediumtext'); */
+    color: #8A7584; /* text-mediumtext (Replaced theme) */
+}
+
+/* Ensure footer stays at bottom */
+/* These classes are likely not needed as flex structure handles it */
+/* .footer-content { display: flex; flex-direction: column; min-height: 100%; } */
+/* .footer-main { flex-grow: 1; } */
+
+/* Text shadow utility */
+.text-shadow-sm {
+    text-shadow: 0 0 5px rgba(242, 225, 255, 0.15);
+}
+
+/* Enhanced Review Section Styles */
+.location-tab {
+    position: relative;
+    overflow: hidden;
+}
+
+.location-tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #E57F9F, #F4ADB8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: 9999px;
+}
+
+.location-tab:hover::before,
+.location-tab.active::before {
+    opacity: 0.1;
+}
+
+.location-tab.active {
+    color: #E57F9F;
+    font-weight: 600;
+}
+
+.location-reviews {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.location-reviews.active {
+    display: block;
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Enhanced Review Card Styles */
+.review-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.review-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #E57F9F, #F4ADB8, #FFCBB6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.review-card:hover::before {
+    opacity: 1;
+}
+
+.review-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.125rem;
+}
+
+.review-stars {
+    color: #FFB800;
+}
+
+.review-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    color: var(--medium-text-color);
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+}
+
+.review-action-btn:hover {
+    color: var(--primary-color);
+}
+
+/* Add decorative elements */
+.review-card .decorative-sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(244, 173, 184, 0.6);
+    border-radius: 50%;
+    animation: sparkle 2s infinite ease-in-out;
+}
+
+.review-card:hover .decorative-sparkle {
+    animation-duration: 1.5s;
+}
+
+/* Add these variables if they don't exist */
+:root {
+    --primary-color: #E57F9F;
+    --secondary-color: #F4ADB8;
+    --dark-text-color: #5D4A54;
+    --medium-text-color: #8A7584;
+}
+
+/* Menu Collapsible Styles */
+.service-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.3s ease-out, margin 0.3s ease-out;
+    opacity: 0;
+    margin-top: 0;
+    padding: 0;
+}
+
+.service-content.expanded {
+    max-height: 1000px; /* Increased to accommodate larger content */
+    opacity: 1;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+}
+
+.service-header {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.service-header h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    line-height: 1.2;
+    flex: 1;
+    min-width: 0;
+}
+
+.service-header:hover {
+    color: #E57F9F;
+}
+
+.service-header .toggle-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.service-header .toggle-icon::before,
+.service-header .toggle-icon::after {
+    content: '';
+    position: absolute;
+    background-color: #D9538A;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.service-header .toggle-icon::before {
+    width: 2px;
+    height: 12px;
+    top: 4px;
+    left: 9px;
+}
+
+.service-header .toggle-icon::after {
+    width: 12px;
+    height: 2px;
+    top: 9px;
+    left: 4px;
+}
+
+.service-header.expanded .toggle-icon::before {
+    transform: scaleY(0);
+}
+
+.ghibli-card:hover .service-header:not(.expanded) .toggle-icon::before,
+.ghibli-card:hover .service-header:not(.expanded) .toggle-icon::after {
+    background-color: #E57F9F;
+}
+
+/* Review Cards Mobile Styles */
+@media (max-width: 767px) {
+    .review-card {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .review-header {
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .review-avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 0.875rem;
+    }
+
+    .review-header h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+
+    .review-header p {
+        font-size: 0.75rem;
+        margin-bottom: 0;
+    }
+
+    .review-stars svg {
+        height: 0.75rem;
+        width: 0.75rem;
+    }
+
+    .review-date {
+        font-size: 0.7rem;
+        opacity: 0.8;
+    }
+
+    .review-body {
+        padding: 0.25rem 0;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin-bottom: 0;
+    }
+
+    .review-body p {
+        margin-bottom: 0;
+        font-size: 0.85rem;
+    }
+
+    .review-footer {
+        padding-top: 0.375rem;
+        margin-top: 0.375rem;
+    }
+
+    .review-action-btn {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .review-action-btn svg {
+        height: 0.875rem;
+        width: 0.875rem;
+    }
+
+    .location-reviews .grid {
+        gap: 0.75rem !important;
+    }
+}
+
+/* Technician Cards Styles (Desktop & Mobile) */
+/* Base styles (Desktop) */
+.team-members > div {
+    background: rgba(255, 240, 245, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(229, 127, 159, 0.2);
+    border-radius: 20px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.team-members > div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 203, 182, 0.2), rgba(229, 127, 159, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-members > div:hover::before {
+    opacity: 1;
+}
+
+.team-members > div::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #FFCBB6, #E57F9F, #F4ADB8);
+    opacity: 0.5;
+}
+
+.team-members img {
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid rgba(229, 127, 159, 0.3);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(229, 127, 159, 0.2);
+}
+
+.team-members > div:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(229, 127, 159, 0.15);
+}
+
+.team-members > div:hover img {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.team-members h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #E57F9F;
+    font-family: 'Playfair Display', serif;
+}
+
+.team-members p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+    color: #8A7584;
+}
+
+/* Team Location Toggle Redesign */
+.team-location-toggle {
+    border: 1px solid rgba(229, 127, 159, 0.15);
+    background: rgba(255, 240, 245, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-location-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(45deg, transparent 48%, rgba(229, 127, 159, 0.1) 49%, rgba(229, 127, 159, 0.1) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(229, 127, 159, 0.1) 49%, rgba(229, 127, 159, 0.1) 51%, transparent 52%);
+    background-size: 16px 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-location-toggle:hover {
+    background: rgba(255, 240, 245, 0.85);
+    border-color: rgba(229, 127, 159, 0.25);
+    transform: translateY(-1px);
+}
+
+.team-location-toggle:hover::before {
+    opacity: 1;
+}
+
+.team-location-toggle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #FFCBB6, #E57F9F, #F4ADB8);
+    opacity: 0.5;
+}
+
+.team-location-toggle h3 {
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    color: #E57F9F;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.team-location-toggle .team-arrow {
+    color: #E57F9F;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.team-location-toggle:hover .team-arrow {
+    opacity: 1;
+    transform: translateY(2px);
+}
+
+.team-location-toggle[aria-expanded="true"] {
+    background: rgba(255, 240, 245, 0.9);
+    border-color: rgba(229, 127, 159, 0.3);
+}
+
+.team-location-toggle[aria-expanded="true"]::before {
+    opacity: 1;
+}
+
+/* Mobile-specific overrides */
+@media (max-width: 767px) {
+    .team-location-toggle {
+        padding: 0.75rem 1rem;
+        border-radius: 10px;
+        margin-bottom: 0.5rem;
+    }
+
+    .team-location-toggle h3 {
+        font-size: 1.25rem;
+    }
+
+    .team-location-toggle::before {
+        background-size: 12px 12px;
+    }
+
+    .team-location-toggle .team-arrow {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+}
