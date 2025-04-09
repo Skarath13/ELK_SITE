@@ -17,6 +17,9 @@ RewriteRule ^(.*)$ https://elegantlashesbykatie.com/$1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/$ /$1 [L,R=301]
 
+# Redirect old lash-menu URL to homepage
+RewriteRule ^lash-menu/?$ / [R=301,L]
+
 # Only handle specific routes for the SPA
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
